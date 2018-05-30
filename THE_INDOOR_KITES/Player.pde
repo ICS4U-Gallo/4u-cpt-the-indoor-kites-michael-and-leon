@@ -1,6 +1,6 @@
   class player{
-      int x,y,spd,size;
-      boolean[] keys=new boolean[5];
+      int x,y,spd,size, health;
+      boolean[] keys=new boolean[4];
       player(int x1,int y1,int spd1,int size1){
       x=x1;
       y=y1;
@@ -10,17 +10,20 @@
       
       
       void update(){
-        if(keys[1]==true&&y-spd>=0){
+        
+        if(keys[0]==true&&y-spd>=0){
         y=y-spd;
         }
-        if(keys[2]==true&&x-spd>=0){
+        if(keys[1]==true&&x-spd>=0){
         x=x-spd;
         }
-        if(keys[3]==true&&y+spd<height-size){
-        y=y+spd;
+        if(keys[2]==true){
+          if(y+spd<height-size)y=y+spd;
+          else y=height-size;
         }
-        if(keys[4]==true&&x+spd<width-size){
-        x=x+spd;
+        if(keys[3]==true){
+          if(x+spd<width-size)x=x+spd;
+          else x=width-size;    
         }
       rect(x,y,size,size);
       }
@@ -28,30 +31,30 @@
       
       void keyp(){
       if(key=='w'){
-      keys[1]=true;
+      keys[0]=true;
       }
       if(key=='a'){
-      keys[2]=true;
+      keys[1]=true;
       }
       if(key=='s'){
-      keys[3]=true;
+      keys[2]=true;
       }
       if(key=='d'){
-      keys[4]=true;
+      keys[3]=true;
       }
       }
       void keyr(){
       if(key=='w'){
-      keys[1]=false;
+      keys[0]=false;
       }
       if(key=='a'){
-      keys[2]=false;
+      keys[1]=false;
       }
       if(key=='s'){
-      keys[3]=false;
+      keys[2]=false;
       }
       if(key=='d'){
-      keys[4]=false;
+      keys[3]=false;
       }
       }
       }
