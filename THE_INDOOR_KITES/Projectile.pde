@@ -5,7 +5,7 @@ class Projectile{
     y=y1;
     xspeed=xs;
     yspeed=ys;
-    size=10;
+    size=15;
   }
   boolean update(){
     if(x+xspeed<width-size&&x+xspeed>0&&y+yspeed<height-size&&y+yspeed>0){
