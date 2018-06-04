@@ -1,13 +1,13 @@
 player player;
+PImage img;
 void settings(){
   size(800,800);
+  img=loadImage("back.png");
   player = new player(400,400,5,50);
 }
 
 void draw(){
-  background(255);
-  //PImage img = loadImage("blue.png");
-  //image(img, 0,0);
+  image(img,0,0);
   player.update();
 }
 
