@@ -1,5 +1,6 @@
 class player{
   ArrayList<Projectile> projs=new ArrayList<Projectile>();
+  PImage img = loadImage("player.png");
   int x,y,spd,size, health, prevm;
   boolean[] keys=new boolean[8];
   player(int x1,int y1,int spd1,int size1){
@@ -42,7 +43,7 @@ class player{
     for(int i=0;i<projs.size();i++){
       if(!projs.get(i).update())projs.remove(i); 
     }
-  rect(x,y,size,size);
+  image(img,x,y);
 }
 
 

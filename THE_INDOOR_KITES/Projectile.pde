@@ -1,5 +1,6 @@
 class Projectile{
   int x, y, xspeed, yspeed, size;
+  PImage img = loadImage("projectile.png");
   Projectile(int x1, int y1, int xs, int ys){
     x=x1;
     y=y1;
@@ -14,7 +15,7 @@ class Projectile{
     }else{
       return false;
     }
-    ellipse(x,y,size,size);
+    image(img, x-((float)size)/2, y-((float)size)/2);
     return true;
   }
 }
