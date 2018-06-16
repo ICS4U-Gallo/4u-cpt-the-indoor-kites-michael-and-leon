@@ -25,8 +25,6 @@ class Game{
         player.x=20;
       }
     }
-    System.out.println(player.x+" "+player.y);
-    System.out.println(curRoom);
     player.update();  
   }
   boolean atDoor(int x){

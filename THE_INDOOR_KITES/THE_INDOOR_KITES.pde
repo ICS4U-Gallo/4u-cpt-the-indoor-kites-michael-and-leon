@@ -2,7 +2,7 @@ Game game;
 PImage img;
 void settings(){
   size(800,800);
-  img=loadImage("back.png");
+  img=loadImage("back.png"); //PLACEHOLDER IMAGE
   game=new Game();
 }
 
