@@ -1,11 +1,21 @@
+ArrayList<Obstacle>obstacles[];
+int curRoom;
+ Player player;
 class Game{
   int[][]directions;
-  Player player;
-  int curRoom;
   Game(){
     directions=new int[][]{{-1,1,-1,-1},{2,3,-1,0},{-1,-1,1,-1},{-1,-1,-1,1}}; // 4 rooms, 4 directions each
     player = new Player(400,400,5,50); 
     curRoom=0;
+    initObs();
+  }
+  void initObs(){
+    obstacles=new ArrayList[4];
+    for(int i=0;i<4;i++){
+      obstacles[i]=new ArrayList<Obstacle>();
+
+    }
+    obstacles[0].add(new Obstacle(500,500,50,50));
   }
   void update(){
     if(atDoor(player.x)){

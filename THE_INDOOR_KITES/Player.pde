@@ -11,19 +11,22 @@ class Player{
     prevm=-500;
   }
   void update(){     
-    if(keys[0]==true&&y-spd>=0){
-      y=y-spd;
-    }
-    if(keys[1]==true&&x-spd>=0){
-      x=x-spd;
-    }
-    if(keys[2]==true){
-      if(y+spd<height-size)y=y+spd;
-      else y=height-size;
-    }
-    if(keys[3]==true){
-      if(x+spd<width-size)x=x+spd;
-      else x=width-size;    
+    for(Obstacle obs:obstacles[curRoom]){
+      int x=obs.x, y=obs.y;
+      if(keys[0]==true&&y-spd>=0){
+        y=y-spd;
+      }
+      if(keys[1]==true&&x-spd>=0){
+        x=x-spd;
+      }
+      if(keys[2]==true){
+        if(y+spd<height-size)y=y+spd;
+        else y=height-size;
+      }
+      if(keys[3]==true){
+        if(x+spd<width-size)x=x+spd;
+        else x=width-size;    
+      }
     }
     if(millis()-prevm>=250){
       if(keys[4]){
