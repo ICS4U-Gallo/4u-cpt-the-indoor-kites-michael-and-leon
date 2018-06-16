@@ -1,20 +1,20 @@
-player player;
+Game game;
 PImage img;
 void settings(){
   size(800,800);
   img=loadImage("back.png");
-  player = new player(400,400,5,50);
+  game=new Game();
 }
 
 void draw(){
   image(img,0,0);
-  player.update();
+  game.update();
 }
 
 void keyPressed(){
-  player.keyp();
+  game.keyp();
 }
 
 void keyReleased(){
-  player.keyr();
+  game.keyr();
 }

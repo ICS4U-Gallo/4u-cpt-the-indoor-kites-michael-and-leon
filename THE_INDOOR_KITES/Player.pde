@@ -1,9 +1,9 @@
-class player{
+class Player{
   ArrayList<Projectile> projs=new ArrayList<Projectile>();
   PImage img = loadImage("player.png");
   int x,y,spd,size, health, prevm;
   boolean[] keys=new boolean[8];
-  player(int x1,int y1,int spd1,int size1){
+  Player(int x1,int y1,int spd1,int size1){
     x=x1;
     y=y1;
     spd=spd1;
