@@ -13,9 +13,11 @@ class Game{
     obstacles=new ArrayList[4];
     for(int i=0;i<4;i++){
       obstacles[i]=new ArrayList<Obstacle>();
-
+      obstacles[i].add(new Obstacle(0,-5,800,5));
+      obstacles[i].add(new Obstacle(-5,0,5,800));
+      obstacles[i].add(new Obstacle(0,800,800,5));
+      obstacles[i].add(new Obstacle(800,0,5,800));
     }
-    obstacles[0].add(new Obstacle(500,500,50,50));
   }
   void update(){
     if(atDoor(player.x)){
@@ -35,6 +37,7 @@ class Game{
         player.x=20;
       }
     }
+    for(Obstacle obs:obstacles[curRoom])obs.update();
     player.update();  
   }
   boolean atDoor(int x){

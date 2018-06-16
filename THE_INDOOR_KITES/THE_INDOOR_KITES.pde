@@ -1,3 +1,4 @@
+
 Game game;
 PImage img;
 void settings(){

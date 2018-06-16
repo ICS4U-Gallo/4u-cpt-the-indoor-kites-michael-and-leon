@@ -10,24 +10,53 @@ class Player{
     size=size1;
     prevm=-500;
   }
-  void update(){     
-    for(Obstacle obs:obstacles[curRoom]){
-      int x=obs.x, y=obs.y;
-      if(keys[0]==true&&y-spd>=0){
-        y=y-spd;
+  void update(){
+      boolean canMove;
+      if(keys[0]==true){
+        canMove=true;
+        for(Obstacle obs:obstacles[curRoom]){
+             if(abs(x-obs.x)<=obs.sx&&y-spd<obs.y+obs.sy&&y-spd>=obs.y){ 
+               y=obs.y+obs.sy+1;
+               canMove=false;
+               break;
+             }
+        }
+        if(canMove)y=y-spd;
       }
-      if(keys[1]==true&&x-spd>=0){
-        x=x-spd;
+      if(keys[1]==true){
+        canMove=true;
+        for(Obstacle obs:obstacles[curRoom]){
+             if(abs(y-obs.y)<=obs.sy&&x-spd<obs.x+obs.sx&&x-spd>=obs.x){
+                x=obs.x+obs.sx+1;
+               canMove=false;
+               break;
+             }
+        }
+        if(canMove)x=x-spd;
       }
       if(keys[2]==true){
-        if(y+spd<height-size)y=y+spd;
-        else y=height-size;
+        canMove=true;
+        for(Obstacle obs:obstacles[curRoom]){
+             if(abs(x-obs.x)<=obs.sx&&y+spd+size>=obs.y&&y+spd+size<obs.y+obs.sy){
+               y=obs.y-size-1;
+               canMove=false;
+               break;
+             }
+        }
+        if(canMove)y=y+spd;
       }
       if(keys[3]==true){
-        if(x+spd<width-size)x=x+spd;
-        else x=width-size;    
+        canMove=true;
+        for(Obstacle obs:obstacles[curRoom]){
+             if(abs(y-obs.y)<=obs.sy&&x+spd+size>=obs.x&&x+spd+size<obs.x+obs.sx){
+               x=obs.x-size-1;
+               canMove=false;
+               break;
+             }
+        }
+        if(canMove)x=x+spd;    
       }
-    }
+      System.out.println(0);
     if(millis()-prevm>=250){
       if(keys[4]){
         projs.add(new Projectile(x+size/2,y+size/2,0,-10));
