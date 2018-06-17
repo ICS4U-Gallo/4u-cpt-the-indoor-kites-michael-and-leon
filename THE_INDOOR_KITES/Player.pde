@@ -15,7 +15,7 @@ class Player{
       if(keys[0]==true){
         canMove=true;
         for(Obstacle obs:obstacles[curRoom]){
-             if(abs(x-obs.x)<=obs.sx&&y-spd<obs.y+obs.sy&&y-spd>=obs.y){ 
+             if(abs(x-obs.x)<=obs.sx&&y-spd<=obs.y+obs.sy&&y-spd>=obs.y){ 
                y=obs.y+obs.sy+1;
                canMove=false;
                break;
@@ -26,7 +26,7 @@ class Player{
       if(keys[1]==true){
         canMove=true;
         for(Obstacle obs:obstacles[curRoom]){
-             if(abs(y-obs.y)<=obs.sy&&x-spd<obs.x+obs.sx&&x-spd>=obs.x){
+             if(abs(y-obs.y)<=obs.sy&&x-spd<=obs.x+obs.sx&&x-spd>=obs.x){
                 x=obs.x+obs.sx+1;
                canMove=false;
                break;
@@ -56,7 +56,6 @@ class Player{
         }
         if(canMove)x=x+spd;    
       }
-      System.out.println(0);
     if(millis()-prevm>=250){
       if(keys[4]){
         projs.add(new Projectile(x+size/2,y+size/2,0,-10));
