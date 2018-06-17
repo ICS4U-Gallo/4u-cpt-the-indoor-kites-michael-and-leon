@@ -9,5 +9,4 @@ class Obstacle{
   void update(){
     rect(x,y,sx,sy);
   }  
-  
 }

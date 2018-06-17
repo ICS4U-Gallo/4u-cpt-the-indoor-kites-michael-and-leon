@@ -11,51 +11,10 @@ class Player{
     prevm=-500;
   }
   void update(){
-      boolean canMove;
-      if(keys[0]==true){
-        canMove=true;
-        for(Obstacle obs:obstacles[curRoom]){
-             if(abs(x-obs.x)<=obs.sx&&y-spd<=obs.y+obs.sy&&y-spd>=obs.y){ 
-               y=obs.y+obs.sy+1;
-               canMove=false;
-               break;
-             }
-        }
-        if(canMove)y=y-spd;
-      }
-      if(keys[1]==true){
-        canMove=true;
-        for(Obstacle obs:obstacles[curRoom]){
-             if(abs(y-obs.y)<=obs.sy&&x-spd<=obs.x+obs.sx&&x-spd>=obs.x){
-                x=obs.x+obs.sx+1;
-               canMove=false;
-               break;
-             }
-        }
-        if(canMove)x=x-spd;
-      }
-      if(keys[2]==true){
-        canMove=true;
-        for(Obstacle obs:obstacles[curRoom]){
-             if(abs(x-obs.x)<=obs.sx&&y+spd+size>=obs.y&&y+spd+size<obs.y+obs.sy){
-               y=obs.y-size-1;
-               canMove=false;
-               break;
-             }
-        }
-        if(canMove)y=y+spd;
-      }
-      if(keys[3]==true){
-        canMove=true;
-        for(Obstacle obs:obstacles[curRoom]){
-             if(abs(y-obs.y)<=obs.sy&&x+spd+size>=obs.x&&x+spd+size<obs.x+obs.sx){
-               x=obs.x-size-1;
-               canMove=false;
-               break;
-             }
-        }
-        if(canMove)x=x+spd;    
-      }
+      if(keys[0]==true&&!collides(x, y-spd, size, obstacles[curRoom]))y=y-spd;
+      if(keys[1]==true&&!collides(x-spd, y, size, obstacles[curRoom]))x=x-spd;
+      if(keys[2]==true&&!collides(x,y+spd,size, obstacles[curRoom]))y=y+spd;
+      if(keys[3]==true&&!collides(x+spd, y, size, obstacles[curRoom]))x=x+spd;    
     if(millis()-prevm>=250){
       if(keys[4]){
         projs.add(new Projectile(x+size/2,y+size/2,0,-10));
