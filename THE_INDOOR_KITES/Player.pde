@@ -1,5 +1,4 @@
 class Player{
-  ArrayList<Projectile> projs=new ArrayList<Projectile>();
   PImage img = loadImage("player.png");
   int x,y,spd,size, health, prevm;
   boolean[] keys=new boolean[8];
@@ -14,7 +13,7 @@ class Player{
       if(keys[0]==true&&!collides(x, y-spd, size, obstacles[curRoom]))y=y-spd;
       if(keys[1]==true&&!collides(x-spd, y, size, obstacles[curRoom]))x=x-spd;
       if(keys[2]==true&&!collides(x,y+spd,size, obstacles[curRoom]))y=y+spd;
-      if(keys[3]==true&&!collides(x+spd, y, size, obstacles[curRoom]))x=x+spd;    
+      if(keys[3]==true&&!collides(x+spd, y, size, obstacles[curRoom]))x=x+spd; 
     if(millis()-prevm>=250){
       if(keys[4]){
         projs.add(new Projectile(x+size/2,y+size/2,0,-10));
@@ -31,9 +30,14 @@ class Player{
       }
     }
     for(int i=0;i<projs.size();i++){
-      if(!projs.get(i).update())projs.remove(i); 
+      if(!projs.get(i).isVal())projs.remove(i); 
+      else projs.get(i).update();
     }
-  image(img,x,y);
+  //image(img,x,y);
+  rect(x,y,size,size);
+  fill(0,0,0);
+  text("YOU",x+12,y+30);
+  fill(255,255,255);
 }
 
 

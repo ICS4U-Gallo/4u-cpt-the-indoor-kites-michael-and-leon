@@ -9,4 +9,7 @@ class Obstacle{
   void update(){
     rect(x,y,sx,sy);
   }  
+  boolean isVal(){
+    return false;
+  }
 }
