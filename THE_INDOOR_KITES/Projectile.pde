@@ -1,6 +1,5 @@
 class Projectile extends Obstacle{
   int xspeed, yspeed, size;
-  PImage img = loadImage("projectile.png");
   Projectile(int x1, int y1, int xs, int ys){
     super(x1,y1,15,15);
     xspeed=xs;
@@ -17,6 +16,5 @@ class Projectile extends Obstacle{
     text("NO",x,y-5);
     fill(255,255,255);
     rect(x,y,size,size);
-   //image(img, x-((float)15)/2, y-((float)size)/2);
   }
 }

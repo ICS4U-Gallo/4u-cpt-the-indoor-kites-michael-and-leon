@@ -33,8 +33,7 @@ class Player{
       if(!projs.get(i).isVal())projs.remove(i); 
       else projs.get(i).update();
     }
-  //image(img,x,y);
-  rect(x,y,size,size);
+  image(img,x,y);
   fill(0,0,0);
   text("YOU",x+12,y+30);
   fill(255,255,255);

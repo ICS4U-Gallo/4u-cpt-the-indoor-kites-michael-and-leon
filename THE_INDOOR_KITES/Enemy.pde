@@ -1,8 +1,10 @@
 class Enemy extends Obstacle{
   int spd, xd, yd, r;
+  PImage img;
   int[]d;
   Enemy(int x, int y){
    super(x,y, 30,30);
+   img=loadImage("enemy.png");
    spd=4;
    d=new int[]{-1,0,1};
    xd=0;
@@ -29,6 +31,6 @@ class Enemy extends Obstacle{
    text("HEY KID WANNA BUY", x-50,y-20);
    text("BUY SOME DRUGS",x-50,y-10);
    fill(255,255,255);
-   rect(x,y,30,30);
+   image(img,x,y);
   }
 }

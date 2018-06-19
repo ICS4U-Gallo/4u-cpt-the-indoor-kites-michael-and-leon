@@ -1,15 +1,13 @@
 ArrayList<Obstacle>obstacles[];
 ArrayList<Obstacle>enemies[];
-ArrayList<Obstacle> projs;
+ArrayList<Obstacle>projs;
 int curRoom;
 Player player;
 class Game{
   int[][]directions;
-  PImage back;
   boolean over;
   Game(){
     over=false;
-    back=loadImage("back.png");
     directions=new int[][]{{-1,1,-1,-1},{2,-1,-1,0},{-1,3,1,-1}};
     player = new Player(400,400,5,50); 
     curRoom=0;
@@ -42,6 +40,40 @@ class Game{
     obstacles[1].add(new Obstacle(575,0, 50,50));
     obstacles[1].add(new Obstacle(750,575, 50,50));
     obstacles[1].add(new Obstacle(575,750, 50,50));
+    obstacles[1].add(new Obstacle(175,350, 50,50));
+    obstacles[1].add(new Obstacle(350,175, 50,50));
+    obstacles[1].add(new Obstacle(575,350, 50,50));
+    obstacles[1].add(new Obstacle(350,575, 50,50));
+    enemies[1].add(new Enemy(50,50));
+    enemies[1].add(new Enemy(750,750));
+    enemies[1].add(new Enemy(50,750));
+    enemies[1].add(new Enemy(750,50));
+    enemies[1].add(new Enemy(50,50));
+    enemies[1].add(new Enemy(750,750));
+    enemies[1].add(new Enemy(50,750));
+    enemies[1].add(new Enemy(750,50));
+    
+    obstacles[2].add(new Obstacle(200,200, 50,50));
+    obstacles[2].add(new Obstacle(600,600, 50,50));
+    obstacles[2].add(new Obstacle(200,600, 50,50));
+    obstacles[2].add(new Obstacle(600,200, 50,50));
+    obstacles[2].add(new Obstacle(0,175, 50,50));
+    obstacles[2].add(new Obstacle(175,0, 50,50));
+    obstacles[2].add(new Obstacle(750,175, 50,50));
+    obstacles[2].add(new Obstacle(175,750, 50,50));
+    obstacles[2].add(new Obstacle(0,575, 50,50));
+    obstacles[2].add(new Obstacle(575,0, 50,50));
+    obstacles[2].add(new Obstacle(750,575, 50,50));
+    obstacles[2].add(new Obstacle(575,750, 50,50));
+    obstacles[2].add(new Obstacle(175,350, 50,50));
+    obstacles[2].add(new Obstacle(350,175, 50,50));
+    obstacles[2].add(new Obstacle(575,350, 50,50));
+    obstacles[2].add(new Obstacle(350,575, 50,50));
+    enemies[2].add(new Enemy(50,50));
+    enemies[2].add(new Enemy(750,750));
+    enemies[2].add(new Enemy(50,750));
+    enemies[2].add(new Enemy(750,50));
+    enemies[2].add(new Enemy(400,400));
     
     
   }
@@ -60,7 +92,6 @@ class Game{
       fill(255,255,255);
     }
     if(!over){
-      //image(img,0,0);
       rect(0,0,800,800);
       if(directions[curRoom][0]!=-1)rect(350,0,100,10);
       if(directions[curRoom][1]!=-1)rect(790,350,10,100);
